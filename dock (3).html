@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>MacOs desktop</title>
+ <link rel="stylesheet" href="style.css">
+ <style>
+  @font-face{
+ font-family: apple;
+ src: url(/MiniProjects/SF-Pro-Text-Regular.otf);
+}
+
+@font-face{
+ font-family: cooljazz;
+ src: url(/MiniProjects/Cooljazz.ttf);
+}
+
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body{
+ font-family: apple;
+ display: flex;
+ flex-flow: column;
+}
+
+main{
+ min-height: 100vh;
+ flex: 1;
+ background-color: black;
+ color: white;
+ background-repeat: no-repeat;
+/* background-image: url("/MiniProjects/Dock(MacOs)/Images/20230703_091348.jpg");*/
+background-image: url("https://pbs.twimg.com/media/F0YPw9NWAAMM5Y-?format=jpg&name=large");
+ background-size: cover;
+ position: relative;
+ display: flex;
+ flex-flow: column;
+ justify-content: space-between;
+}
+
+main h1{
+ font-size: 2.5rem;
+ font-family: cooljazz;
+}
+
+.desktop{
+ min-height: 70vh;
+ display: grid;
+ place-items: center;
+}
+
+/*Gallery*/
+
+.gallery{
+ position: absolute;
+ width: 100%;
+ top: 40%;
+ left: 0;
+ display: flex;
+ flex-flow: row;
+ height: 30vh;
+ gap: 0.5rem;
+ padding: 1rem;
+}
+
+
+.gallery div{
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-color: silver;
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROVUpjpZeHCVmxKvUK-kZ9JT_lVEP6E4cK3w&usqp=CAU");
+ flex: 1;
+ z-index: 1;
+ transition: all 0.5s;
+ border-radius: 0.5rem;
+ height: 20vh;
+ width: 20vw;
+ overflow: clip;
+}
+
+.gallery div:nth-of-type(2){
+ background-image: url("https://pbs.twimg.com/media/F0YYswvX0AAFtyy?format=jpg&name=large");
+}
+
+.gallery div:nth-of-type(3){
+ background-image: url("https://www.apple.com/v/airpods-pro/g/images/overview/case_front__r6ng7f1x18a6_small_2x.jpg")
+}
+
+.gallery div:nth-of-type(4){
+ background-image: url("https://cdn.dribbble.com/users/332135/screenshots/2344079/windows_hello_animation.gif")
+}
+
+.gallery div:hover{
+ flex: 5;
+}
+
+.info{
+ display: none;
+}
+
+.gallery div:hover .info{
+ display: block;
+}
+
+.info{
+ font-size: 1rem;
+}
+
+.share{
+ width: 30%;
+ border-radius: 50%;
+ z-index: 1;
+ position: fixed;
+ top: 25%;
+ left: 25%;
+}
+
+.share img{
+ width: 50%;
+ border-radius: 50px;
+}
+
+
+/*Dock section*/
+
+.dock-container{
+ position: sticky;
+ bottom: 0;
+ display: grid;
+ place-items: bottom;
+}
+
+.dock{
+ position: absolute;
+ bottom: 0;
+ left: 5%;
+ height: 9vh;
+ width: 90%;
+ min-width: 40%;
+ margin: auto;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ /*background-color: rgba(222, 222, 222, 0.4);*/
+ backdrop-filter: blur(10px);
+ border-radius: 1rem;
+ padding: 0 0.2rem;
+margin-bottom: 1rem;
+z-index: 2;
+}
+
+.dock div div{
+ display: none;
+ position: absolute;
+ margin-top: -5%;
+ text-align: center;
+ 
+ backdrop-filter: blur(25px);
+ border-radius: 1rem;
+ font-size: 2rem;
+ padding: 0.5rem;
+}
+
+.dock img{
+ width: 80%;
+}
+
+.dock .macapp{
+ display: none;
+}
+
+ .imessage{
+ width: 80%;
+}
+
+.dock .safari, .dock .settings{
+ width: 50%;
+}
+
+
+
+@media screen and (min-width: 768px) {
+ body{
+  font-size: 2rem;
+ }
+ /*Dock animations*/
+ .dock div{
+ transition: all 0.3s ease-in-out;
+}
+
+.dock div:hover{
+ width: 50%;
+ margin-top: -10%;
+}
+
+.dock div:hover div{
+ display: block;
+}
+ 
+.app:hover + .app{
+ width: 40%;
+ margin-top: -5%;
+}
+
+.app:hover + .app + .app{
+ width: 35%;
+ margin-top: -2%;
+}
+
+.app:has(+ .app:hover){
+ width: 40%;
+ margin-top: -5%;
+}
+
+.app:has(.app + .app:hover){
+ width: 35%;
+ margin-top: -2%;
+}
+
+ /*Desktop appearance*/
+ main h1{
+  font-size: 3.5rem;
+ }
+ .dock .macapp{
+  display: block;
+ }
+ 
+.dock img{
+  width: 80%;
+ }
+ 
+ .imessage{
+  width: 35%;
+ }
+ 
+ .dock{
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  height: 5.5vh;
+ }
+ 
+ .tiny{
+  width: 30%;
+ }
+ 
+ .appstore, .code{
+  width: 35%;
+ }
+ 
+ .dock .safari{
+  width: 50%;
+ }
+ .dock .settings{
+  width: 70%;
+ }
+ /**/
+ .gallery{
+  gap: 1rem;
+ }
+ .gallery div{
+  border-radius: 2rem;
+ }
+ 
+ .info{
+  font-size: 2.5rem;
+ }
+ 
+ 
+ 
+ }
+ </style>
+</head>
+
+<body>
+ <header>
+  <section class="menu">
+   
+  </section>
+ </header>
+ 
+ <main>
+  <section class="desktop">
+    <article>
+     <h1>hello</h1>
+    </article>
+    <div class="share">
+     <a href="whatsapp://send?text=http://www.google.com">
+      <img src="/MiniProjects/Animated Gallery/instagram-share-button-paper-airplane-e1568486239609.png" alt="">
+     </a>
+    </div>
+  </section>
+  
+  <section class="gallery">
+   <div>
+    <h1 class="info">Apple devices</h1>
+   </div> 
+    <div>
+      <h1 class="info">Colorful wallpaper</h1>
+    </div>
+    
+    <div>
+     <h1 class="info">AirPods Pro</h1>
+    </div>
+    
+    <div>
+     <h1 class="info">Windows Hello</h1>
+    </div>
+  <!-- <div style="background-image: url("/MiniProjects/Animated Gallery/images/0a14a08302541d1e4a5fdb787829f24f.jpg");">
+  
+   </div> 
+   
+   <div style = "background-image: url("/MiniProjects/Animated Gallery/images/0a14a08302541d1e4a5fdb787829f24f.jpg");">
+   </div> 
+   
+   <div style = "background-image: url("/MiniProjects/Dock(MacOs)/Gallery /macbook-with-mac-dock-customized.webp")">
+     
+    </div>
+    
+   <!--  <article>
+      <div class="image">
+       <img src="" alt="">
+      </div>
+     </article>
+     
+      <article>
+       <div class="image">
+        <img src="" alt="">
+       </div>
+      </article>-->
+      
+  </section>
+  
+  
+  <section class="dock-container">
+   <article class="dock">
+    
+    <div class="macapp app">
+     <div class="info">
+      <h4>Finder</h4>
+     </div>
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdhfHrW0LIl6cTeOmJVXeUVKXTakCIaPV99Q&usqp=CAU" alt="finder">
+    </div>
+    
+    <div class="imessage app">
+     <div class="info">
+      <h4>iMessage</h4>
+     </div>
+     <img src="https://help.apple.com/assets/63BCA927AAE78C58DD7FBE35/63BCA92EAAE78C58DD7FBE76/en_US/ae8d596d44d76eddfb1ea9eb4772e949.png" alt="iMessage">
+    </div>
+    
+    <div class="app">
+     <div class="info">
+      <h4>Photos</h4>
+     </div>
+     <img src="https://icon-library.com/images/iphone-gallery-icon/iphone-gallery-icon-12.jpg" alt="photos">
+    </div>
+    
+    <div class="app">
+     <div class="info">
+      <h4>Settings</h4>
+     </div>
+     <img src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Settings-512.png" alt="" class="settings">
+    </div>
+    
+    <div class="app">
+     <div class="info">
+      <h4>Safari</h4>
+     </div>
+     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/d6/da/ed/d6daeda8-e1e0-d08e-e8fd-7fd0f401f1f3/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/492x0w.webp" alt="" class="safari">
+    </div>
+    <div class="macapp appstore app">
+     <div class="info">
+      <h4>App Store</h4>
+     </div>
+     <img src="https://help.apple.com/assets/63BCA927AAE78C58DD7FBE35/63BCA92EAAE78C58DD7FBE76/en_US/5f24dec3b0c6420e53f224e84a5fee30.png" alt="">
+    </div>
+    
+    <div class="macapp app tiny">
+     <div class="info">
+      <h4>Calendar</h4>
+     </div>
+     <img src="https://help.apple.com/assets/63BCA927AAE78C58DD7FBE35/63BCA92EAAE78C58DD7FBE76/en_US/2162f7d3de310d2b3503c0bbebdc3d56.png" alt="calendar">
+    </div>
+    
+    <div class="macapp app code">
+     <div class="info">
+      <h4>XCode</h4>
+     </div>
+     <img src="https://developer.apple.com/assets/elements/icons/xcode-12/xcode-12-96x96_2x.png" alt="">
+    </div>
+    
+     <div class="macapp app tiny">
+      <div class="info">
+       <h4>Music</h4>
+      </div>
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_LDJgN2XkgQuxwnadiFeWDyM9EiwFL-2zXw&usqp=CAU" alt="">
+    </div>
+    
+    <div class="macapp app tiny">
+     <div class="info">
+      <h4>Maps</h4>
+     </div>
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/AppleMaps_logo.svg/2048px-AppleMaps_logo.svg.png" alt="map">
+    </div>
+    
+
+    
+   </article>
+  </section>
+ </main>
+ 
+ <footer>
+  
+ </footer>
+ 
+ <script>
+  alert('On desktop, hover over the icons in the dock, and also on the images. Just skip mobile view😅');
+  alert('By Chibuzo KVP');
+ </script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+@font-face{
+ font-family: apple;
+ src: url(/MiniProjects/SF-Pro-Text-Regular.otf);
+}
+
+@font-face{
+ font-family: cooljazz;
+ src: url(/MiniProjects/Cooljazz.ttf);
+}
+
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body{
+ font-family: apple;
+ display: flex;
+ flex-flow: column;
+}
+
+main{
+ min-height: 100vh;
+ flex: 1;
+ background-color: black;
+ color: white;
+ background-repeat: no-repeat;
+/* background-image: url("/MiniProjects/Dock(MacOs)/Images/20230703_091348.jpg");*/
+background-image: url("https://pbs.twimg.com/media/F0YPw9NWAAMM5Y-?format=jpg&name=large");
+ background-size: cover;
+ position: relative;
+ display: flex;
+ flex-flow: column;
+ justify-content: space-between;
+}
+
+main h1{
+ font-size: 2.5rem;
+ font-family: cooljazz;
+}
+
+.desktop{
+ min-height: 70vh;
+ display: grid;
+ place-items: center;
+}
+
+/*Gallery*/
+
+.gallery{
+ position: absolute;
+ width: 100%;
+ top: 40%;
+ left: 0;
+ display: flex;
+ flex-flow: row;
+ height: 30vh;
+ gap: 0.5rem;
+ padding: 1rem;
+}
+
+
+.gallery div{
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-color: silver;
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROVUpjpZeHCVmxKvUK-kZ9JT_lVEP6E4cK3w&usqp=CAU");
+ flex: 1;
+ z-index: 1;
+ transition: all 0.5s;
+ border-radius: 0.5rem;
+ height: 20vh;
+ width: 20vw;
+ overflow: clip;
+}
+
+.gallery div:nth-of-type(2){
+ background-image: url("https://pbs.twimg.com/media/F0YYswvX0AAFtyy?format=jpg&name=large");
+}
+
+.gallery div:nth-of-type(3){
+ background-image: url("https://www.apple.com/v/airpods-pro/g/images/overview/case_front__r6ng7f1x18a6_small_2x.jpg")
+}
+
+.gallery div:nth-of-type(4){
+ background-image: url("https://cdn.dribbble.com/users/332135/screenshots/2344079/windows_hello_animation.gif")
+}
+
+.gallery div:hover{
+ flex: 5;
+}
+
+.info{
+ display: none;
+}
+
+.gallery div:hover .info{
+ display: block;
+}
+
+.info{
+ font-size: 1rem;
+}
+
+
+/*Dock section*/
+
+.dock-container{
+ position: sticky;
+ bottom: 0;
+ display: grid;
+ place-items: bottom;
+}
+
+.dock{
+ position: absolute;
+ bottom: 0;
+ left: 5%;
+ height: 9vh;
+ width: 90%;
+ min-width: 40%;
+ margin: auto;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ /*background-color: rgba(222, 222, 222, 0.4);*/
+ backdrop-filter: blur(10px);
+ border-radius: 1rem;
+ padding: 0 0.2rem;
+margin-bottom: 1rem;
+z-index: 2;
+}
+
+.dock div div{
+ display: none;
+ position: absolute;
+ margin-top: -5%;
+ text-align: center;
+ 
+ backdrop-filter: blur(25px);
+ border-radius: 1rem;
+ font-size: 2rem;
+ padding: 0.5rem;
+}
+
+.dock img{
+ width: 80%;
+}
+
+.dock .macapp{
+ display: none;
+}
+
+ .imessage{
+ width: 80%;
+}
+
+.dock .safari, .dock .settings{
+ width: 50%;
+}
+
+
+
+@media screen and (min-width: 768px) {
+ body{
+  font-size: 2rem;
+ }
+ /*Dock animations*/
+ .dock div{
+ transition: all 0.3s ease-in-out;
+}
+
+.dock div:hover{
+ width: 50%;
+ margin-top: -10%;
+}
+
+.dock div:hover div{
+ display: block;
+}
+ 
+.app:hover + .app{
+ width: 40%;
+ margin-top: -5%;
+}
+
+.app:hover + .app + .app{
+ width: 35%;
+ margin-top: -2%;
+}
+
+.app:has(+ .app:hover){
+ width: 40%;
+ margin-top: -5%;
+}
+
+.app:has(.app + .app:hover){
+ width: 35%;
+ margin-top: -2%;
+}
+
+ /*Desktop appearance*/
+ main h1{
+  font-size: 3.5rem;
+ }
+ .dock .macapp{
+  display: block;
+ }
+ 
+.dock img{
+  width: 80%;
+ }
+ 
+ .imessage{
+  width: 35%;
+ }
+ 
+ .dock{
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  height: 5.5vh;
+ }
+ 
+ .tiny{
+  width: 30%;
+ }
+ 
+ .appstore, .code{
+  width: 35%;
+ }
+ 
+ .dock .safari{
+  width: 50%;
+ }
+ .dock .settings{
+  width: 70%;
+ }
+ /**/
+ .gallery{
+  gap: 1rem;
+ }
+ .gallery div{
+  border-radius: 2rem;
+ }
+ 
+ .info{
+  font-size: 2.5rem;
+ }
+ 
+ 
+ 
+ }
